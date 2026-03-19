@@ -1,0 +1,1104 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- ========== ENHANCED SEO META TAGS ========== -->
+  <title>{% block title %}Falla237 - Lost & Found Platform Cameroon | Find Lost Items{% endblock %}</title>
+  <meta name="description" content="Find lost items in Cameroon. Post lost phones, documents, bags, keys. Search found items in Yaoundé, Douala, Garoua. Reunite with your belongings quickly.">
+  <meta name="keywords" content="lost and found cameroon, falla237, lost items cameroon, found items cameroon, yaoundé lost items, douala lost items, garoua lost items, bamenda lost items, lost phone cameroon, lost documents cameroon">
+  <meta name="author" content="Falla237">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <link rel="canonical" href="https://falla237.onrender.com">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://falla237.onrender.com/">
+  <meta property="og:title" content="Falla237 - Cameroon's Lost and Found Platform">
+  <meta property="og:description" content="Find lost items in Cameroon. Post and search for lost phones, documents, bags across Yaoundé, Douala, Garoua and other cities.">
+  <meta property="og:image" content="https://falla237.onrender.com/static/images/icons/falla_192x192.png">
+  <meta property="og:site_name" content="Falla237">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://falla237.onrender.com/">
+  <meta property="twitter:title" content="Falla237 - Cameroon's Lost and Found Platform">
+  <meta property="twitter:description" content="Find lost items in Cameroon. Post and search for lost items across major Cameroonian cities.">
+  <meta property="twitter:image" content="https://falla237.onrender.com/static/images/icons/falla_192x192.png">
+
+  <!-- Structured Data for Local Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Falla237",
+    "description": "Cameroon's Lost and Found Platform - Reuniting people with their lost belongings",
+    "url": "https://falla237.onrender.com",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Web Browser",
+    "author": {
+      "@type": "Organization",
+      "name": "Falla237",
+      "url": "https://falla237.onrender.com"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "XAF"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Cameroon"
+    }
+  }
+  </script>
+  <!-- ========== END SEO META TAGS ========== -->
+
+  <!-- Google Search Console Verification -->
+  <meta name="google-site-verification" content="u4vInsocQEHRsC8HLCtD4FV1ILXzMHzaZFaVT43nSXE" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WSLQGXENGK"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WSLQGXENGK');
+  </script>
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3222000871285100" crossorigin="anonymous"></script>
+
+   <!-- PWA Configuration -->
+  <meta name="application-name" content="Falla237">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Falla237">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#0A0302">
+
+
+    <!-- Icons -->
+  <link rel="icon" href="{% static 'images/icons/falla_48x48.png' %}">
+  <link rel="icon" href="{% static 'images/icons/falla_72x72.png' %}" sizes="72x72">
+  <link rel="icon" href="{% static 'images/icons/falla_96x96.png' %}" sizes="96x96">
+  <link rel="icon" href="{% static 'images/icons/falla_144x144.png' %}" sizes="144x144">
+  <link rel="icon" href="{% static 'images/icons/falla_192x192.png' %}" sizes="192x192">
+  <link rel="apple-touch-icon" href="{% static 'images/icons/falla_180x180.png' %}">
+
+   <!-- Manifest -->
+    <link rel="manifest" href="{% static 'manifest.json' %}" crossorigin="use-credentials">
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="{% static 'css/bootstrap.min.css' %}" as="style">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" as="style">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="preload" href="{% static 'js/bootstrap.bundle.min.js' %}" as="script">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <!-- Preload resources with proper crossorigin -->
+  <link rel="preload" href="{% static 'css/bootstrap.min.css' %}" as="style" crossorigin="anonymous">
+  <link rel="preload" href="{% static 'js/bootstrap.bundle.min.js' %}" as="script" crossorigin="anonymous">
+
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" crossorigin="anonymous">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+ <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  
+<!-- NProgress CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css">
+
+
+  <style>
+    :root {
+      --cameroon-green: #007a5e;
+      --cameroon-red: #ce1126;
+      --cameroon-yellow: #fcd116;
+      --transition-base: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+
+
+    /* ===== Typography & Branding ===== */
+   .navbar-brand {
+    font-weight: bold;
+    background: linear-gradient(to right, #007a5e 33%, #ce1126 33%, #ce1126 66%, #fcd116 66%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding: 0 5px;
+    pointer-events: none; /* prevents hover */
+    /* Add these to completely prevent any state changes */
+    transition: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    user-select: none;
+    }
+
+    /* Force the same appearance in all states */
+    .navbar-brand:hover,
+    .navbar-brand:focus,
+    .navbar-brand:active,
+    [data-bs-theme="dark"] .navbar-brand,
+    [data-bs-theme="dark"] .navbar-brand:hover,
+    [data-bs-theme="dark"] .navbar-brand:focus {
+    background: linear-gradient(to right, #007a5e 33%, #ce1126 33%, #ce1126 66%, #fcd116 66%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-decoration: none;
+    opacity: 1;
+}
+
+
+
+    /* ===== Navbar Structure ===== */
+    .bg-cameroon {
+      background-color: #343a40;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      backdrop-filter: blur(8px); /* Frosted glass effect */
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    [data-bs-theme="dark"] .bg-cameroon {
+      background-color: rgba(26, 26, 26, 0.9); /* Slightly transparent */
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* ===== Navigation Links ===== */
+    .nav-link {
+      position: relative;
+      margin: 0 4px;
+      padding: 10px 16px !important; /* Better touch targets */
+      border-radius: 6px; /* Softer radius */
+      transition: var(--transition-base);
+      color: #f8f9fa !important;
+      font-weight: 500; /* Medium weight */
+    }
+
+    .nav-link:not(.dropdown-toggle):hover {
+      background-color: rgba(0, 122, 94, 0.15);
+      transform: translateY(-1px); /* Subtle lift effect */
+    }
+
+    [data-bs-theme="dark"] .nav-link:not(.dropdown-toggle):hover {
+      background-color: rgba(0, 122, 94, 0.4);
+    }
+
+    /* Active state with animated underline */
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 16px;
+      right: 16px;
+      height: 2px;
+      background: linear-gradient(to right, 
+        var(--cameroon-green), 
+        var(--cameroon-red), 
+        var(--cameroon-yellow));
+      transform-origin: left center;
+      animation: underlineGrow 0.3s ease-out forwards;
+    }
+
+    @keyframes underlineGrow {
+      0% { transform: scaleX(0); }
+      100% { transform: scaleX(1); }
+    }
+
+    /* ===== Professional Dropdowns ===== */
+    .dropdown-menu {
+      border: none;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      border-radius: 8px;
+      overflow: hidden; /* For border radius */
+      margin-top: 8px !important; /* Space from navbar */
+    }
+
+    [data-bs-theme="dark"] .dropdown-menu {
+      background-color: #2a2a2a;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    .dropdown-item {
+      position: relative;
+      padding: 10px 20px !important;
+      transition: var(--transition-base);
+      font-weight: 500;
+    }
+
+    .dropdown-item:hover {
+      background-color: rgba(0, 122, 94, 0.1);
+      transform: translateX(8px); /* More pronounced movement */
+      padding-left: 28px !important; /* Compensate for arrow */
+    }
+
+    .dropdown-item:hover::before {
+      content: '→';
+      position: absolute;
+      left: 12px;
+      color: var(--cameroon-green);
+      animation: point 0.5s infinite alternate;
+    }
+
+    /* ===== Theme Toggle ===== */
+    .theme-toggle {
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 8px 12px;
+      border-radius: 50%; /* Circular button */
+      transition: var(--transition-base);
+      color: #f8f9fa;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .theme-toggle:hover {
+      background-color: rgba(0, 122, 94, 0.2);
+      transform: rotate(15deg); /* Playful rotation */
+    }
+
+    /* ===== Professional Mobile Toggler ===== */
+    .navbar-toggler {
+      --toggler-size: 44px; /* Larger tap target */
+      --toggler-padding: 0.5rem;
+      
+      width: var(--toggler-size);
+      height: var(--toggler-size);
+      padding: var(--toggler-padding);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      transition: var(--transition-base);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .navbar-toggler:hover {
+      background-color: rgba(0, 122, 94, 0.2);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: 0 0 0 0.25rem rgba(0, 122, 94, 0.25);
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 8h22M4 15h22M4 22h22'/%3e%3c/svg%3e");
+      width: 1.35em;
+      height: 1.35em;
+      transition: var(--transition-base);
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M6 6L24 24M6 24L24 6'/%3e%3c/svg%3e");
+    }
+
+    /* ===== Footer Enhancements ===== */
+    footer {
+      background-color: #343a40;
+      border-color: rgba(0, 0, 0, 0.1);
+      color: #f8f9fa;
+      font-size: 0.9rem;
+      padding: 1.5rem 0;
+    }
+
+    .footer-copy {
+      margin-bottom: 0.5rem;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-credit a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .footer-credit a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: currentColor;
+      transition: width 0.3s ease;
+    }
+
+    .footer-credit a:hover::after {
+      width: 100%;
+    }
+
+    /* Dark mode footer */
+    [data-bs-theme="dark"] footer {
+      background-color: #1a1a1a;
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* ===== Responsive Adjustments ===== */
+    @media (max-width: 991.98px) {
+      .navbar-collapse {
+        padding: 1rem 0;
+        background: inherit;
+        backdrop-filter: inherit;
+      }
+      
+      .nav-item {
+        margin: 4px 0;
+      }
+    }
+  </style>
+
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/serviceworker.js')
+          .then(registration => {
+            console.log('ServiceWorker registration successful');
+          })
+          .catch(err => {
+            console.log('ServiceWorker registration failed: ', err);
+          });
+      });
+    }
+  </script>
+
+</head>
+<body>
+  <!-- Enhanced Navbar with ARIA improvements -->
+
+  <nav class="navbar navbar-expand-lg bg-cameroon shadow-sm py-2 py-lg-3" aria-label="Main navigation">
+  <div class="container">
+    <a class="navbar-brand" href="#" aria-label="FALLA 237 Home">FALLA 237</a>
+
+    <button class="navbar-toggler" type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbarNavDropdown" 
+            aria-controls="navbarNavDropdown" 
+            aria-expanded="false" 
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'home' %}" aria-current="page">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'found' %}">Found Objects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'lost' %}">Lost Objects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">About</a>
+        </li>
+      </ul>
+
+      <div class="d-flex align-items-center ms-auto">
+        <button class="theme-toggle me-2 me-lg-3" id="themeToggle" aria-label="Toggle theme">
+          <span class="d-none d-sm-inline"><i class="bi"></i></span>
+          <i class="bi d-sm-none"></i>
+        </button>
+
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            {% if user.is_authenticated %}
+              <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" 
+              id="accountDropdown" 
+              role="button" 
+              data-bs-toggle="dropdown" 
+              aria-expanded="false"
+              aria-haspopup="true">
+              <i class="bi bi-person-circle me-2" aria-hidden="true"></i>
+               <h5>{{ user.username }}</h5>
+              
+              </a>
+
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
+                <li><a class="dropdown-item" href="{% url 'dashboard' %}"><i class="bi bi-speedometer2 me-2" aria-hidden="true"></i>Dashboard</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="bi bi-box-arrow-left me-2" aria-hidden="true"></i>Logout</a></li>
+              </ul>
+            {% else %}
+              <a class="nav-link dropdown-toggle" href="#" 
+                 id="accountDropdown" 
+                 role="button" 
+                 data-bs-toggle="dropdown" 
+                 aria-expanded="false"
+                 aria-haspopup="true">
+                <i class="bi bi-person-circle me-1" aria-hidden="true"></i> Account
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
+                <li><a class="dropdown-item" href="{% url 'login' %}"><i class="bi bi-box-arrow-in-right me-2" aria-hidden="true"></i>Login</a></li>
+                <li><a class="dropdown-item" href="{% url 'register' %}"><i class="bi bi-person-plus me-2" aria-hidden="true"></i>Register</a></li>
+              </ul>
+            {% endif %}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endfor %}
+{% endif %}
+
+
+ {% block content %}
+
+ {% endblock %}
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  
+  <!-- Bootstrap JS with defer -->
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}" defer></script>
+
+  <script>
+    // Enhanced theme toggler with animation
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlElement = document.documentElement;
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    // Initialize theme
+    const savedTheme = localStorage.getItem('theme') || 
+                      (prefersDark.matches ? 'dark' : 'light');
+    htmlElement.setAttribute('data-bs-theme', savedTheme);
+
+    function updateThemeIcon() {
+      const isDark = htmlElement.getAttribute('data-bs-theme') === 'dark';
+      themeToggle.innerHTML = isDark 
+        ? '<i class="bi bi-sun-fill text-warning"></i>'
+        : '<i class="bi bi-moon-stars-fill"></i>';
+      
+      // Add animation class
+      themeToggle.classList.add('animate-toggle');
+      setTimeout(() => {
+        themeToggle.classList.remove('animate-toggle');
+      }, 300);
+    }
+
+    // Listen for system theme changes
+    prefersDark.addEventListener('change', e => {
+      if (!localStorage.getItem('theme')) {
+        htmlElement.setAttribute('data-bs-theme', e.matches ? 'dark' : 'light');
+        updateThemeIcon();
+      }
+    });
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = htmlElement.getAttribute('data-bs-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      htmlElement.setAttribute('data-bs-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon();
+    });
+
+    // Initialize
+    updateThemeIcon();
+  </script>
+
+
+
+<!-- Enhanced Footer -->
+<footer class=" text-white py-4" style="background-color: #1e2a38; color: #145699;">
+  <div class="container">
+    <div class="row">
+      
+      <!-- Quick Links -->
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-3">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2">
+            <a href="{% url 'about' %}" class="text-white text-decoration-none">About Us</a>
+          </li>
+          <li class="mb-2">
+            <a href="{% url 'privacy' %}" class="text-white text-decoration-none">Privacy Policy</a>
+          </li>
+          <li>
+            <a href="{% url 'terms' %}" class="text-white text-decoration-none">Terms & Conditions</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-3">Contact Us</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2">
+            <i class="fas fa-envelope me-2"></i>
+            <a href="mailto:leoemmanuelson46@gmail.com" class="text-white text-decoration-none">leoemmanuelson46@gmail.com</a>
+          </li>
+          <li class="mb-2">
+            <i class="fas fa-phone me-2"></i>
+            <a href="tel:+237698053400" class="text-white text-decoration-none">+237 698 053 400</a>
+          </li>
+          <li>
+            <i class="fas fa-map-marker-alt me-2"></i>
+            <span class="text-white">Garoua, Cameroon</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Social Media -->
+      <div class="col-md-4">
+        <h5 class="text-uppercase mb-3">Follow Us</h5>
+        <div class="social-links">
+          <a href="https://www.instagram.com/itsfoudaemmanuel/" ><i class="fab fa-instagram fa-lg"></i></a>
+          <a href="https://github.com/Fouda-Emmanuel" ><i class="fab fa-github fa-lg"></i></a>
+          <a href="https://x.com/LeoEmmanuelson" ><i class="fab fa-x-twitter fa-lg"></i></a>
+              <a href="https://www.linkedin.com/in/emmanuel-fouda-954250339"><i class="fa-brands fa-linkedin fa-lg"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="my-4 bg-secondary">
+
+    <!-- Centered Bottom Info -->
+    <div class="text-center">
+      <div class="footer-copy mb-1 text-white">&copy; <span id="currentYear"></span> FALLA 237. All rights reserved.</div>
+      <div class="footer-credit">
+        <a href="https://foudaemmanuel.onrender.com/" target="_blank" rel="noopener noreferrer" class=" text-decoration-none">
+          Developed by Fouda Aime Emmanuel Kalvin
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* Shake animation only for Quick Links and footer-credit links */
+  footer .footer-credit a:hover,
+  footer .list-unstyled a:hover {
+    background-color: rgba(14, 14, 192, 0.103);
+    animation: shake 0.3s ease-in-out;
+    border-radius: 5px;
+    padding: 2px 5px;
+  }
+
+  /* Shake keyframes */
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    50% { transform: translateX(3px); }
+    75% { transform: translateX(-3px); }
+    100% { transform: translateX(0); }
+  }
+
+  /* Social media icon hover */
+footer .social-links a {
+  display: inline-block;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  padding: 5px;
+  border-radius: 50%;
+  color: #fff; /* make sure icon is white */
+}
+
+footer .social-links a:hover {
+  background-color: rgba(14, 14, 192, 0.103); /* background on hover */
+  transform: scale(1.2) rotate(10deg); /* subtle grow + rotate */
+  color: #fff; /* keep icon white */
+}
+
+</style>
+
+
+<style>
+  /* Your existing styles (unchanged) */
+  .install-prompt-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 320px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    z-index: 9999;
+    transform: translateY(100%);
+    opacity: 0;
+    animation: toastIn 0.4s ease-out forwards;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    transition: background 0.3s ease;
+  }
+
+  
+  @keyframes toastIn {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  }
+
+  @keyframes toastOut {
+    from {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+
+
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-3px); }
+    40%, 80% { transform: translateX(3px); }
+  }
+
+  .install-prompt-button:hover {
+    opacity: 1 !important;
+    animation: shake 0.1s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  }
+
+  .install-prompt-close:hover {
+    animation: shake 0.1s ease;
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .install-prompt-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .install-prompt-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0;
+  }
+
+  .install-prompt-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #888;
+    cursor: pointer;
+    padding: 2px 4px;
+    line-height: 1;
+  }
+
+  .install-prompt-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .install-prompt-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  }
+
+  .install-prompt-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .install-prompt-body {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+  }
+
+  .install-prompt-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .install-prompt-button {
+    padding: 8px 14px;
+    font-size: 13px;
+    border-radius: 8px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .install-prompt-button.secondary {
+    background: rgba(240, 240, 240, 0.9);
+    color: #333;
+  }
+
+  .install-prompt-button.primary {
+    background: linear-gradient(135deg, #0055ff, #3a8fff);
+    color: white;
+    box-shadow: 0 2px 6px rgba(0, 85, 255, 0.25);
+  }
+
+  .install-prompt-button:hover {
+    opacity: 0.95;
+  }
+
+  .install-prompt-button:active {
+    transform: scale(0.97);
+  }
+
+  /* DARK MODE SUPPORT */
+  @media (prefers-color-scheme: dark) {
+    .install-prompt-container {
+      background: rgba(32, 33, 36, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    }
+
+    .install-prompt-title {
+      color: #f1f1f1;
+    }
+
+    .install-prompt-body {
+      color: #dcdcdc;
+    }
+
+    .install-prompt-close {
+      color: #aaa;
+    }
+
+    .install-prompt-button.secondary {
+      background: rgba(80, 80, 80, 0.6);
+      color: #eee;
+    }
+
+    .install-prompt-button.primary {
+      background: linear-gradient(135deg, #3a8fff, #0055ff);
+      color: white;
+    }
+  }
+
+ 
+/* Thank you toast style */
+.thank-you-toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #0055ff, #3a8fff);
+  color: white;
+  padding: 14px 24px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 85, 255, 0.4);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  opacity: 0;
+  transform: translateY(100%);
+  animation: toastIn 0.4s ease-out forwards;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Dismiss button (×) */
+.thank-you-toast .toast-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  margin-left: auto;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.thank-you-toast .toast-close:hover {
+  opacity: 1;
+}
+
+/* Animations */
+@keyframes toastIn {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes toastOut {
+  from {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+
+</style>
+
+
+<script>
+  let deferredPrompt;
+  let installPrompt;
+  let timeSpentInterval;
+  let pageStartTime = Date.now();
+  let isPromptVisible = false;
+
+  const LAST_PROMPT_KEY = 'falla237_last_prompt';
+  const NEVER_SHOW_KEY = 'falla237_hide_install_prompt';
+  const TIME_SPENT_KEY = 'falla237_time_spent';
+  const PROMPT_DELAY_DAYS = 1;
+  const MIN_TIME_SPENT = 5 * 60 * 60 * 1000; // 5 hours
+  const AUTO_DISMISS_DELAY = 25000; // 25 sec
+
+  // 🔊 Sound Setup
+  const notifySound = new Audio('/static/sounds/notify.wav');
+  notifySound.volume = 0.6;
+  notifySound.preload = 'auto';
+
+  const installedSound = new Audio('/static/sounds/installed.wav');
+  installedSound.volume = 0.7;
+  installedSound.preload = 'auto';
+
+  // Smart Sound Playback
+  async function playSound(audioElement, isCritical = false) {
+    try {
+      audioElement.currentTime = 0;
+      await audioElement.play();
+      return true;
+    } catch (err) {
+      console.log("Audio playback failed:", err);
+      
+      if (isCritical) {
+        // Create invisible interaction element
+        const soundActivator = document.createElement('button');
+        soundActivator.style.cssText = `
+          position: fixed;
+          opacity: 0;
+          pointer-events: none;
+          width: 0;
+          height: 0;
+        `;
+        document.body.appendChild(soundActivator);
+        
+        try {
+          soundActivator.click();
+          await audioElement.play();
+          document.body.removeChild(soundActivator);
+          return true;
+        } catch (e) {
+          document.body.removeChild(soundActivator);
+          console.log("Fallback playback failed:", e);
+          return false;
+        }
+      }
+      return false;
+    }
+  }
+
+  function getPlatformMessage() {
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    if (/android/i.test(ua)) {
+      return "Add Falla237 to your Android home screen for quick access and a smoother experience.";
+    } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+      return "Add Falla237 to your iPhone or iPad home screen for quick access and a smoother experience.";
+    } else {
+      return "Install Falla237 on your device for quick access and a smoother experience.";
+    }
+  }
+
+  function shouldShowPrompt() {
+    if (localStorage.getItem(NEVER_SHOW_KEY)) return false;
+    if (window.matchMedia('(display-mode: standalone)').matches) return false;
+    const lastShown = localStorage.getItem(LAST_PROMPT_KEY);
+    if (!lastShown) return true;
+    return Date.now() - parseInt(lastShown) > PROMPT_DELAY_DAYS * 24 * 60 * 60 * 1000;
+  }
+
+  function hasSpentEnoughTime() {
+    const timeSpent = parseInt(localStorage.getItem(TIME_SPENT_KEY) || '0');
+    return timeSpent >= MIN_TIME_SPENT;
+  }
+
+  function markPromptShown() {
+    localStorage.setItem(LAST_PROMPT_KEY, Date.now().toString());
+  }
+
+  function showInstallPromotion() {
+    if (isPromptVisible || !shouldShowPrompt()) return;
+    isPromptVisible = true;
+
+    // Play sound immediately (300ms delay for animation sync)
+    setTimeout(() => playSound(notifySound, true), 300);
+
+    installPrompt = document.createElement('div');
+    installPrompt.className = 'install-prompt-container';
+    installPrompt.innerHTML = `
+      <div class="install-prompt-header">
+        <h3 class="install-prompt-title">Install Falla237</h3>
+        <button class="install-prompt-close" id="dismissBtn">&times;</button>
+      </div>
+      <div class="install-prompt-content">
+        <div class="install-prompt-icon">
+          <img src="/static/images/icons/falla_192x192.png" alt="Falla237 Icon">
+        </div>
+        <div class="install-prompt-body">
+          ${getPlatformMessage()}
+        </div>
+      </div>
+      <div class="install-prompt-footer">
+        <button class="install-prompt-button secondary" id="neverBtn">Don't show again</button>
+        <button class="install-prompt-button secondary" id="laterBtn">Later</button>
+        <button class="install-prompt-button primary" id="installBtn">Install</button>
+      </div>
+    `;
+
+    document.body.appendChild(installPrompt);
+    markPromptShown();
+
+    const autoDismissTimer = setTimeout(() => {
+      installPrompt.style.animation = 'toastOut 0.3s ease-in forwards';
+      setTimeout(() => installPrompt.remove(), 300);
+    }, AUTO_DISMISS_DELAY);
+
+    document.getElementById('installBtn').addEventListener('click', async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+          console.log('User accepted install');
+        }
+        deferredPrompt = null;
+      }
+      installPrompt.remove();
+      clearTimeout(autoDismissTimer);
+    });
+
+    document.getElementById('laterBtn').addEventListener('click', () => {
+      installPrompt.remove();
+      clearTimeout(autoDismissTimer);
+    });
+
+    document.getElementById('dismissBtn').addEventListener('click', () => {
+      installPrompt.remove();
+      clearTimeout(autoDismissTimer);
+    });
+
+    document.getElementById('neverBtn').addEventListener('click', () => {
+      localStorage.setItem(NEVER_SHOW_KEY, 'true');
+      installPrompt.remove();
+      clearTimeout(autoDismissTimer);
+    });
+  }
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    setTimeout(() => {
+      if (shouldShowPrompt()) showInstallPromotion();
+    }, 3000); // 3-second delay
+  });
+
+  window.addEventListener('appinstalled', () => {
+    console.log('App installed');
+    setTimeout(() => playSound(installedSound), 500);
+    
+    const toast = document.createElement('div');
+    toast.className = 'thank-you-toast';
+    toast.innerHTML = `Thank you for installing Falla237! 🎉`;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 5000);
+    
+    localStorage.setItem(NEVER_SHOW_KEY, 'true');
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    pageStartTime = Date.now();
+    
+    // Start tracking time spent
+    if (!timeSpentInterval) {
+      timeSpentInterval = setInterval(() => {
+        const timeSpent = parseInt(localStorage.getItem(TIME_SPENT_KEY) || '0') + 60000;
+        localStorage.setItem(TIME_SPENT_KEY, timeSpent.toString());
+      }, 60000);
+    }
+    
+    // Preload sounds on first interaction
+    const preloadSounds = () => {
+      notifySound.load().catch(console.error);
+      installedSound.load().catch(console.error);
+      document.removeEventListener('click', preloadSounds);
+    };
+    document.addEventListener('click', preloadSounds);
+  });
+</script>
+
+<!-- NProgress JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Start loader on every <a> click
+    document.querySelectorAll('a[href]').forEach(link => {
+      link.addEventListener('click', e => {
+        // Only left-click & same tab
+        if (!e.ctrlKey && !e.metaKey && !e.shiftKey && !e.defaultPrevented && e.button === 0) {
+          NProgress.start();
+        }
+      });
+    });
+
+    // Stop loader when page finishes loading
+    window.addEventListener('load', () => {
+      NProgress.done();
+    });
+  });
+</script>
+
+
+  <script>
+    // Set current year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

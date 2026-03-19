@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /accounts/
+
+# Crawl delay for free tier
+Crawl-delay: 2
+
+Sitemap: https://falla237.onrender.com/sitemap.xml

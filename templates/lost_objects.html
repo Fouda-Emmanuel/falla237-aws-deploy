@@ -1,0 +1,214 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Lost Items in Cameroon - Search Found Objects | Falla237{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+  <!-- Page Header -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h1 class="h3 mb-0">Lost Objects</h1>
+      <p class="text-muted">Items reported as lost by our community</p>
+    </div>
+  </div>
+
+  <!-- Search and Filter -->
+  <div class="card mb-4 border-0 shadow-sm">
+    <div class="card-body p-3">
+      <form method="GET">
+        <!-- Filter Section -->
+        <div class="row g-3 mb-3">
+          <!-- Location Filter -->
+          <div class="col-md-6 col-lg-3">
+            <label class="form-label small text-muted mb-1">Location Lost</label>
+            <select name="location" class="form-select">
+              <option value="">All Locations</option>
+              {% for loc in location_choices %}
+                <option value="{{ loc.0 }}" {% if request.GET.location == loc.0 %}selected{% endif %}>{{ loc.1 }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          
+          <!-- Category Filter -->
+          <div class="col-md-6 col-lg-3">
+            <label class="form-label small text-muted mb-1">Category</label>
+            <select name="category" class="form-select">
+              <option value="">All Categories</option>
+              {% for cat in category_choices %}
+                <option value="{{ cat.0 }}" {% if request.GET.category == cat.0 %}selected{% endif %}>{{ cat.1 }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          
+          <!-- Date Filter -->
+          <div class="col-md-6 col-lg-3">
+            <label class="form-label small text-muted mb-1">Date Lost</label>
+            <input type="date" name="date" class="form-control" value="{{ request.GET.date }}">
+          </div>
+          
+          <!-- Filter Button -->
+          <div class="col-md-6 col-lg-3 d-flex align-items-end">
+
+           <button id="filterBtn" type="submit" class="btn btn-primary w-100 d-flex align-items-center justify-content-center gap-2">
+              <span id="filterBtnText"><i class="bi bi-funnel"></i> Apply Filters</span>
+              <span id="filterSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+            </button>
+
+          </div>
+        </div>
+        
+        <!-- Search Section -->
+       <div class="row g-2">
+  <!-- Search Input -->
+  <div class="col-md-7">
+    <label class="form-label small text-muted mb-1">Search</label>
+    <div class="input-group">
+      <span class="input-group-text bg-transparent"><i class="bi bi-search"></i></span>
+      <input name="q" type="search" 
+             class="form-control border-start-0 live-search-input" 
+             placeholder="Search lost items..."
+             value="{{ request.GET.q }}"
+             autocomplete="off">
+    </div>
+  </div>
+
+  <!-- Search Button -->
+  <div class="col-md-2 d-flex align-items-end">
+    <button id="searchBtn" type="submit" class="btn btn-primary w-100 d-flex align-items-center justify-content-center gap-2">
+      <span id="searchBtnText"><i class="bi bi-search"></i> Search</span>
+      <span id="searchSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <!-- Reset Button -->
+  <div class="col-md-3 d-flex align-items-end">
+    <a href="{% url 'lost' %}" class="btn btn-outline-secondary w-100">
+      <i class="bi bi-arrow-clockwise"></i> Reset
+    </a>
+  </div>
+</div>
+
+
+
+      </form>
+    </div>
+  </div>
+
+  <!-- Items List -->
+  <div class="list-group">
+    {% if items %}
+      {% for item in items %}
+        <div class="list-group-item p-0 mb-3 border-0">
+          <div class="card border-0 shadow-sm-hover">
+            <div class="row g-0">
+              <div class="col-md-2">
+                <img src="{{ item.img.url }}" class="img-fluid rounded-start" alt="{{ item.title }}" style="height: 150px; object-fit: cover;">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between">
+                    <h5 class="card-title mb-1">{{ item.title }}</h5>
+                    <span class="badge bg-danger">{{ item.get_status_display }}</span>
+                  </div>
+                  <p class="card-text text-muted mb-2">{{ item.description|truncatechars:100 }}</p>
+                  <div class="d-flex gap-3 text-muted small">
+                    <span><i class="bi bi-geo-alt"></i> {{ item.get_location_display }}</span>
+                    <span><i class="bi bi-calendar"></i> Lost on {{ item.date_lost_or_found|date:"M d, Y" }}</span>
+                    <span><i class="bi bi-tag"></i> {{ item.get_category_display }}</span>
+
+                    {% if item.reward %}
+                    <div>
+                      <span class="text-muted me-1">Reward</span>
+                      <span class="text-bg-success"><strong>{{ item.reward }} FCFA</strong></span>
+                    </div>
+                    {% endif %}
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2 d-flex align-items-center justify-content-center">
+                <a href="{% url 'object_detail' item.id %}" class="btn btn-outline-primary">View</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="text-center py-5">
+        <img src="{% static 'images/no-items.png' %}" alt="No items" class="img-fluid mb-3" width="120">
+        <h5 class="text-muted">No lost items matching your search</h5>
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- Pagination -->
+  {% if is_paginated %}
+    <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-center mt-4">
+        {% if page_obj.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% for key,value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">&laquo;</a>
+          </li>
+        {% else %}
+          <li class="page-item disabled">
+            <span class="page-link">&laquo;</span>
+          </li>
+        {% endif %}
+        
+        {% for i in paginator.page_range %}
+          {% if page_obj.number == i %}
+            <li class="page-item active">
+              <span class="page-link">{{ i }}</span>
+            </li>
+          {% else %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ i }}{% for key,value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">{{ i }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+        
+        {% if page_obj.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}{% for key,value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">&raquo;</a>
+          </li>
+        {% else %}
+          <li class="page-item disabled">
+            <span class="page-link">&raquo;</span>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+  {% endif %}
+</div>
+
+<script>
+  const form = document.querySelector('form');
+
+  const searchBtn = document.getElementById('searchBtn');
+  const searchBtnText = document.getElementById('searchBtnText');
+  const searchSpinner = document.getElementById('searchSpinner');
+
+  const filterBtn = document.getElementById('filterBtn');
+  const filterBtnText = document.getElementById('filterBtnText');
+  const filterSpinner = document.getElementById('filterSpinner');
+
+  form.addEventListener('submit', function (e) {
+    const clickedBtn = e.submitter?.id;
+
+    if (clickedBtn === 'searchBtn') {
+      searchBtn.disabled = true;
+      searchBtnText.textContent = 'Searching...';
+      searchSpinner.classList.remove('d-none');
+    } else if (clickedBtn === 'filterBtn') {
+      filterBtn.disabled = true;
+      filterBtnText.textContent = 'Filtering...';
+      filterSpinner.classList.remove('d-none');
+    }
+  });
+</script>
+
+
+
+{% endblock %}

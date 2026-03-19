@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load form_tags %}
+
+{% block title %}Report Lost Item - Find Your Belongings | Falla237{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow">
+
+        <!-- Blue Heading -->
+        <div class="card-header bg-danger text-white text-center">
+          <h3 class="mb-0">Post Lost Item</h3>
+        </div>
+
+        <div class="card-body">
+          <form method="POST" enctype="multipart/form-data" novalidate>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+
+            <!-- Item Name -->
+            <div class="mb-3">
+              <label class="form-label">Item Name <span class="text-danger">*</span></label>
+              {{ form.title|add_class:"form-control" }}
+            </div>
+
+            <!-- Status -->
+            <div class="mb-3">
+              <label class="form-label">Status <span class="text-danger">*</span></label>
+              {{ form.status|add_class:"form-select" }}
+            </div>
+
+            <div class="row">
+              <!-- Category -->
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Category <span class="text-danger">*</span></label>
+                {{ form.category|add_class:"form-select" }}
+              </div>
+
+              <!-- Location -->
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Location <span class="text-danger">*</span></label>
+                {{ form.location|add_class:"form-select" }}
+              </div>
+            </div>
+
+            <!-- Description -->
+            <div class="mb-3">
+              <label class="form-label">Description <span class="text-danger">*</span></label>
+              {{ form.description|add_class:"form-control" }}
+            </div>
+
+            <div class="row">
+              <!-- Date -->
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Date Lost<span class="text-danger">*</span></label>
+                {{ form.date_lost_or_found|add_class:"form-control" }}
+              </div>
+
+              <!-- Contact Info -->
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Contact Info <span class="text-danger">*</span></label>
+                {{ form.contact_info|add_class:"form-control" }}
+              </div>
+            </div>
+
+            <!-- Reward Field -->
+            <div class="mb-3">
+              <label class="form-label">Reward Offered (Optional)</label>
+              {{ form.reward|add_class:"form-control" }}
+            </div>
+            
+            <!-- Image -->
+            <div class="mb-3">
+            <label class="form-label">Upload Image <span class="text-danger">*</span></label>
+            {{ form.img|add_class:"form-control"}}
+            <div class="form-text small text-muted">Max size: 4MB. Allowed formats: JPG, JPEG, PNG</div>
+
+            <!-- Image preview container -->
+            <div id="img-preview-container" style="position: relative; display: inline-block; margin-top: 10px;">
+
+              <!-- Preview image -->
+              <img id="img-preview" src="#" alt="Image Preview" class="img-fluid" style="max-height: 160px; display: none; border: 1px solid #ddd; border-radius: 4px;">
+
+              <!-- X button -->
+              <button type="button" id="remove-img-btn" title="Remove image"
+                style="
+                  display: none;
+                  position: absolute;
+                  top: 5px;
+                  right: 5px;
+                  background-color: #dc3545; /* Bootstrap danger red */
+                  color: white;
+                  border: none;
+                  border-radius: 50%;
+                  width: 28px;
+                  height: 28px;
+                  font-weight: bold;
+                  font-size: 18px;
+                  line-height: 24px;
+                  text-align: center;
+                  cursor: pointer;
+                  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+                  transition: background-color 0.3s ease;
+                "
+                onmouseover="this.style.backgroundColor='#b02a37'"
+                onmouseout="this.style.backgroundColor='#dc3545'"
+              >
+                &times;
+              </button>
+            </div>
+
+            {% if form.img.errors %}
+            <div class="text-danger small mt-1">
+                {% for error in form.img.errors %}
+                  {{ error }}
+                {% endfor %}
+            </div>
+            {% endif %}
+            </div>
+
+
+            <!-- Submit Button -->
+            <button id="postBtn" type="submit" class="btn btn-danger w-100 d-flex align-items-center justify-content-center gap-2">
+              <span id="postBtnText">Post Item</span>
+              <span id="postSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+            </button>
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const imgInput = document.querySelector('input[type="file"][name="img"]');
+  const imgPreview = document.getElementById('img-preview');
+  const removeBtn = document.getElementById('remove-img-btn');
+
+  imgInput.addEventListener('change', function(event) {
+    const [file] = imgInput.files;
+    if (file) {
+      imgPreview.src = URL.createObjectURL(file);
+      imgPreview.style.display = 'block';
+      removeBtn.style.display = 'block'; // Show remove button
+    } else {
+      imgPreview.src = '#';
+      imgPreview.style.display = 'none';
+      removeBtn.style.display = 'none'; // Hide remove button
+    }
+  });
+
+  removeBtn.addEventListener('click', function() {
+    imgInput.value = '';          // Clear the file input
+    imgPreview.src = '#';         // Reset preview src
+    imgPreview.style.display = 'none'; 
+    removeBtn.style.display = 'none';
+  });
+</script>
+
+<script>
+  const postForm = document.querySelector('form');
+  const postBtn = document.getElementById('postBtn');
+  const postBtnText = document.getElementById('postBtnText');
+  const postSpinner = document.getElementById('postSpinner');
+
+  postForm.addEventListener('submit', function () {
+    postBtn.disabled = true;
+    postBtnText.textContent = 'Posting...';
+    postSpinner.classList.remove('d-none');
+  });
+</script>
+
+
+{% endblock %}

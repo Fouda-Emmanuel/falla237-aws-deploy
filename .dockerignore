@@ -1,0 +1,55 @@
+# Comments start with a hash symbol
+# Exclude build artifacts
+dist
+build
+out
+target
+*.o
+*.a
+*.so
+
+# Exclude temporary files and logs
+*.log
+logs
+tmp
+temp
+*.tmp
+*.temp
+db.sqlite3
+
+# Exclude environment and secret files
+.env
+.env.*
+/.env
+*.pem
+*.key
+*.crt
+secrets
+credentials
+
+# Exclude version control and metadata directories/files
+.git
+.gitignore
+.hg
+.svn
+.cache
+.DS_Store
+
+# Exclude IDE or OS-specific directories
+.vscode
+**/coverage
+
+# Exclude dependency directories (as they are usually installed inside the container)
+node_modules
+venv
+/venv
+
+# Exclude documentation and test files if not needed in the final image
+README.md
+docs
+test*
+*.md
+
+# Negation pattern: Include a specific file that would otherwise be ignored
+# (Note: order matters; negation must come after the general ignore pattern)
+!README.md
