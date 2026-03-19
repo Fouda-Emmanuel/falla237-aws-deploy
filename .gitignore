@@ -1,9 +1,5 @@
 /venv
 /.env
-db.sqlite3
-staticfiles
-staticfiles/*
-/staticfiles
 
 *.log
 *.pot
@@ -64,6 +60,10 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 cover/
+db.sqlite3
+staticfiles
+staticfiles/*
+/staticfiles
 
 # Translations
 *.mo
@@ -143,4 +143,3 @@ cython_debug/
 # LSP config files
 pyrightconfig.json
 
-# End of https://www.toptal.com/developers/gitignore/api/django,python
