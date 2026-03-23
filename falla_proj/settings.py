@@ -30,10 +30,12 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'falla237.onrender.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'falla237.onrender.com', 'foudadev.site', 'www.foudadev.site']
 
 CSRF_TRUSTED_ORIGINS = [
     'https://falla237.onrender.com', 
+    'https://foudadev.site', 
+    'https://www.foudadev.site', 
 ]
 
 

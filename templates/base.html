@@ -135,7 +135,7 @@
     background-clip: text;
     color: transparent;
     padding: 0 5px;
-    pointer-events: none; /* prevents hover */
+    /* pointer-events: none; prevents hover */
     /* Add these to completely prevent any state changes */
     transition: none !important;
     -webkit-tap-highlight-color: transparent !important;
@@ -383,7 +383,7 @@
 
   <nav class="navbar navbar-expand-lg bg-cameroon shadow-sm py-2 py-lg-3" aria-label="Main navigation">
   <div class="container">
-    <a class="navbar-brand" href="#" aria-label="FALLA 237 Home">FALLA 237</a>
+    <a class="navbar-brand" href="{% url 'home' %}" aria-label="FALLA 237 Home">FALLA 237</a>
 
     <button class="navbar-toggler" type="button" 
             data-bs-toggle="collapse" 

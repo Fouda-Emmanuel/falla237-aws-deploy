@@ -53,3 +53,28 @@ test*
 # Negation pattern: Include a specific file that would otherwise be ignored
 # (Note: order matters; negation must come after the general ignore pattern)
 !README.md
+
+# =========================
+# Terraform / DevOps tools
+# =========================
+terraform/
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# Ansible
+ansible/
+
+# Packer
+packer/
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
