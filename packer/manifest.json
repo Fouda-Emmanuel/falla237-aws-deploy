@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "name": "golden_ami",
+      "builder_type": "amazon-ebs",
+      "build_time": 1774374320,
+      "files": null,
+      "artifact_id": "us-east-1:ami-0ed0f4f52b44e975c",
+      "packer_run_uuid": "fc76423d-1ab3-858f-2f15-d87e46cc341a",
+      "custom_data": null
+    }
+  ],
+  "last_run_uuid": "fc76423d-1ab3-858f-2f15-d87e46cc341a"
+}

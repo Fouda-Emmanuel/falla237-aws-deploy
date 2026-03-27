@@ -47,4 +47,4 @@ EXPOSE 8000
 
 ENTRYPOINT ["/entrypoint.sh"]
 
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "falla_proj.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "1", "falla_proj.wsgi:application"]

@@ -1,0 +1,10 @@
+---
+- name: Provision Golden AMI
+  hosts: all
+  become: true
+
+  roles:
+    - common
+    - docker
+    - aws-cli
+    - hardening
