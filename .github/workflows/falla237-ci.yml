@@ -16,6 +16,7 @@ jobs:
   build_and_scan:
     name: Build and Scan
     runs-on: ubuntu-latest
+    environment: dev
 
     steps:
       - name: Start Build Job
@@ -69,6 +70,7 @@ jobs:
   publish:
     name: Publish Image
     runs-on: ubuntu-latest
+    environment: dev
     needs: build_and_scan
 
     if: github.event_name != 'pull_request'
