@@ -2,7 +2,6 @@ variable "vpc_id" {
   description = "VPC ID"
 }
 
-
 variable "alb_sg" {
   description = "Application Load Balancer Security Group"
   type = string

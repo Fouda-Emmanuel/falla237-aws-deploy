@@ -27,9 +27,11 @@ resource "aws_db_instance" "postgres_db" {
   publicly_accessible = false
   storage_encrypted = true
 
+  multi_az = false
+
   skip_final_snapshot = true
 
-  backup_retention_period = 7
+  backup_retention_period = 0
 
   tags = {
     Name = var.db_identifier
