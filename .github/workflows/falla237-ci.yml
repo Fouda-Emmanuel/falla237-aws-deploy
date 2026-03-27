@@ -38,14 +38,15 @@ jobs:
           context: .
           file: docker/Dockerfile
           push: false
-          tags: ${vars.IMAGE_NAME}:ci
+          load: true
+          tags: ${{ vars.IMAGE_NAME }}:ci
           cache-from: type=gha
           cache-to: type=gha,mode=max
       
       - name: Scan Image (Trivy)
         uses: aquasecurity/trivy-action@master
         with:
-           image-ref: ${vars.IMAGE_NAME}:ci
+           image-ref: ${{ vars.IMAGE_NAME }}:ci
            vuln-type: 'os,library'
            severity: 'HIGH, CRITICAL'
            exit-code: '1'
@@ -118,7 +119,7 @@ jobs:
       - name: Login to Docker Hub
         run: |
           set -euo pipefail
-          echo "${secrets.DOCKERHUB_TOKEN}" | docker login -u ${secrets.DOCKERHUB_USERNAME} --password-stdin
+          echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
         
       - name: Docker Hub Login Failure
         if: ${{ failure() }}
@@ -137,7 +138,8 @@ jobs:
           context: .
           file: docker/Dockerfile
           push: false
-          tags: ${vars.IMAGE_NAME}:ci
+          load: true
+          tags: ${{ vars.IMAGE_NAME }}:ci
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
@@ -153,19 +155,19 @@ jobs:
 
           SHA=${GITHUB_SHA::7}
 
-          docker tag "${vars.IMAGE_NAME}:ci" "${secrets.DOCKERHUB_USERNAME}/${vars.IMAGE_NAME}:latest"
-          docker tag "${vars.IMAGE_NAME}:ci" "${secrets.DOCKERHUB_USERNAME}/${vars.IMAGE_NAME}:sha-$SHA"
+          docker tag "${{ vars.IMAGE_NAME }}:ci" "${{ secrets.DOCKERHUB_USERNAME }}/${{ vars.IMAGE_NAME }}:latest"
+          docker tag "${{ vars.IMAGE_NAME }}:ci" "${{ secrets.DOCKERHUB_USERNAME }}/${{ vars.IMAGE_NAME }}:sha-$SHA"
 
-          docker tag "${vars.IMAGE_NAME}:ci" "${vars.ECR_REGISTRY}/${vars.ECR_REPOSITORY}:latest"
-          docker tag "${vars.IMAGE_NAME}:ci" "${vars.ECR_REGISTRY}/${vars.ECR_REPOSITORY}:sha-$SHA"
+          docker tag "${{ vars.IMAGE_NAME }}:ci" "${{ vars.ECR_REGISTRY }}/${{ vars.ECR_REPOSITORY }}:latest"
+          docker tag "${{ vars.IMAGE_NAME }}:ci" "${{ vars.ECR_REGISTRY }}/${{ vars.ECR_REPOSITORY }}:sha-$SHA"
 
           if [ "$PIPELINE_TYPE" == "RELEASE" ]; then
             if [[ -z "$VERSION" ]]; then
              echo "ERROR: VERSION is empty. Cannot tag release image."
              exit 1
-            fi
-            docker tag "${vars.IMAGE_NAME}:ci" "${secrets.DOCKERHUB_USERNAME}/${vars.IMAGE_NAME}:$VERSION"
-            docker tag "${vars.IMAGE_NAME}:ci" "${vars.ECR_REGISTRY}/${vars.ECR_REPOSITORY}:$VERSION"
+            fi }
+            docker tag "${{ vars.IMAGE_NAME }}:ci" "${{ secrets.DOCKERHUB_USERNAME }}/${{ vars.IMAGE_NAME }}:$VERSION"
+            docker tag "${{ vars.IMAGE_NAME }}:ci" "${{ vars.ECR_REGISTRY }}/${{ vars.ECR_REPOSITORY }}:$VERSION"
           fi
 
       - name: Push Images
@@ -175,22 +177,22 @@ jobs:
 
           SHA=${GITHUB_SHA::7}
 
-          docker push "${secrets.DOCKERHUB_USERNAME}/${vars.IMAGE_NAME}:latest"
-          docker push "${secrets.DOCKERHUB_USERNAME}/${vars.IMAGE_NAME}:sha-$SHA"
+          docker push "${{ secrets.DOCKERHUB_USERNAME }}/${{ vars.IMAGE_NAME }}:latest"
+          docker push "${{ secrets.DOCKERHUB_USERNAME }}/${{ vars.IMAGE_NAME }}:sha-$SHA"
 
           if [ "$PIPELINE_TYPE" == "RELEASE" ]; then
-            docker push "${secrets.DOCKERHUB_USERNAME}/${vars.IMAGE_NAME}:$VERSION"
+            docker push "${{ secrets.DOCKERHUB_USERNAME }}/${{ vars.IMAGE_NAME }}:$VERSION"
           fi
 
-          docker push "${vars.ECR_REGISTRY}/${vars.ECR_REPOSITORY}:latest"
-          docker push "${vars.ECR_REGISTRY}/${vars.ECR_REPOSITORY}:sha-$SHA"
+          docker push "${{ vars.ECR_REGISTRY }}/${{ vars.ECR_REPOSITORY }}:latest"
+          docker push "${{ vars.ECR_REGISTRY }}/${{ vars.ECR_REPOSITORY }}:sha-$SHA"
           
           if [ "$PIPELINE_TYPE" == "RELEASE" ]; then
             if [[ -z "$VERSION" ]]; then
              echo "ERROR: VERSION is empty. Cannot tag release image."
              exit 1
             fi
-            docker push "${vars.ECR_REGISTRY}/${vars.ECR_REPOSITORY}:$VERSION"
+            docker push "${{ vars.ECR_REGISTRY }}/${{ vars.ECR_REPOSITORY }}:$VERSION"
           fi
 
       - name: Push Message Failure
