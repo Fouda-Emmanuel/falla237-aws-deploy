@@ -110,7 +110,8 @@ jobs:
 
           if [[ "$PIPELINE_TYPE" == "RELEASE" ]]; then
             echo "[INFO] Release Version: $VERSION "
-      
+          fi
+          
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
