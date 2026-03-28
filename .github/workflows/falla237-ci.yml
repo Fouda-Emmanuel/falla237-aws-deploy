@@ -177,7 +177,7 @@ jobs:
             if [[ -z "$VERSION" ]]; then
              echo "ERROR: VERSION is empty. Cannot tag release image."
              exit 1
-            fi }
+            fi
             docker tag "${{ vars.IMAGE_NAME }}:ci" "${{ secrets.DOCKERHUB_USERNAME }}/${{ vars.IMAGE_NAME }}:$VERSION"
             docker tag "${{ vars.IMAGE_NAME }}:ci" "${{ vars.ECR_REGISTRY }}/${{ vars.ECR_REPOSITORY }}:$VERSION"
           fi
@@ -200,10 +200,6 @@ jobs:
           docker push "${{ vars.ECR_REGISTRY }}/${{ vars.ECR_REPOSITORY }}:sha-$SHA"
           
           if [ "$PIPELINE_TYPE" == "RELEASE" ]; then
-            if [[ -z "$VERSION" ]]; then
-             echo "ERROR: VERSION is empty. Cannot tag release image."
-             exit 1
-            fi
             docker push "${{ vars.ECR_REGISTRY }}/${{ vars.ECR_REPOSITORY }}:$VERSION"
           fi
 
